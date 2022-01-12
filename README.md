@@ -49,3 +49,21 @@ yarn run build:css
 ```bash
 bin/rails db:setup
 ```
+### setup Devise
+GemFiles
+
+```bash
+bin/rails g devise:install
+bin/rails g devise User
+```
+
+### Wellcome controller
+```bash
+bin/rails g controller Welcome index --no-helper
+```
+
+### Prepare DB
+```bash
+bin/rails db:prepare
+bin/rails db:seed
+```
