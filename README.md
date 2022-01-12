@@ -2,8 +2,8 @@
 # Real-Time Comments and Voting (Rails 7.0.1 Hotwire)
 
 
-## prepare
-### check:
+### prepare
+#### check:
 
 * Node
 ```bash
@@ -21,7 +21,7 @@ psql --version
 ```bash
 ruby --version
 ```
-### if need
+#### if need
 ```bash
 rvm install 3.1.0
 rvm use 3.1.0
@@ -30,12 +30,12 @@ rvm use 3.1.0
 ```bash
 rails --version
 ```
-### if need
+#### if need
 ```bash
 gem install rails
 ```
 
-## install 
+### install 
 * new Rails app
 ```bash
 rails new RealTime_Comments_and_Voting -j esbuild -css bootstrap d postgresql -T
@@ -45,7 +45,7 @@ rails new RealTime_Comments_and_Voting -j esbuild -css bootstrap d postgresql -T
 bin/rails css:install:bootstrap
 yarn run build:css
 ```
-## setup PostreSQL
+### setup PostreSQL
 ```bash
 bin/rails db:setup
 ```
