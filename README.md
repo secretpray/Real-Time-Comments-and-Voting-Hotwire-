@@ -3,38 +3,49 @@
 
 
 ## prepare
+### check:
 
-* node --version
+* Node
+```bash
+node --version
+```
+* Yarn
+```bash
+yarn --version
+```
+* PostgreSQL
+```bash
+psql --version
+```
+* Ruby (ruby 3.1.0p0)
+```bash
+ruby --version
+```
+### if need
+```bash
+rvm install 3.1.0
+rvm use 3.1.0
+```
+* Rails (Rails 7.0.1)
+```bash
+rails --version
+```
+### if need
+```bash
+gem install rails
+```
 
-* yarn --version
-
-* psql --version
-
-* ruby --version
-...
-  ruby 3.1.0p0
-...
-or
-* rvm install 3.1.0
-* rvm use 3.1.0
-
-* rails --version
-...
-  Rails 7.0.1
-...
-or
-* gem install rails
-
-## install
-
-* rails new RealTime_Comments_and_Voting -j esbuild -css bootstrap d postgresql -T
-
-<!-- edit Procfile.dev
-...
-web: bin/rails server -p 3000
-js: yarn build --watch
-css: yarn build:css --watch
-... -->
-
+## install 
+* new Rails app
+```bash
+rails new RealTime_Comments_and_Voting -j esbuild -css bootstrap d postgresql -T
+```
+* Bootstarp
+```bash
 bin/rails css:install:bootstrap
 yarn run build:css
+```
+## setup PostreSQL
+```bash
+bin/rails db:setup
+```
