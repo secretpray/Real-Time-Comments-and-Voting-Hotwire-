@@ -1,6 +1,9 @@
-<h1>Comment</h1>
 <%= turbo_stream_from :comments %>
 <%= turbo_stream_from [current_user, :comments] %>
+
+<h2 class="text-lg font-bold text-4xl cursor-pointer" id="comments_counter">
+  <%= render partial: 'comments/count', locals: { count: @comments.count } %>
+</h2>
 
 <div id="comments">
   <%= render @comments %>
