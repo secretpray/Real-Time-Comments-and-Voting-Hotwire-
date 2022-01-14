@@ -12,6 +12,7 @@ node --version
 * Yarn
 ```bash
 yarn --version
+yarn install --check-files
 ```
 * PostgreSQL
 ```bash
@@ -35,7 +36,7 @@ rails --version
 gem install rails
 ```
 
-### install 
+### install
 * new Rails app
 ```bash
 rails new RealTime_Comments_and_Voting -j esbuild -css bootstrap d postgresql -T

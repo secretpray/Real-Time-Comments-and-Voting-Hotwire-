@@ -1,0 +1,12 @@
+<%= turbo_frame_tag "new_comment", target: :_top do %>
+  <%= form_with(model: comment) do |form| %>
+    <%= render partial: 'shared/errors', locals: {comment: comment} %>
+    <div class="mb-3">
+      <%= form.rich_text_area :content %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+<% end %>

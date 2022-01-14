@@ -3,6 +3,7 @@
   <head>
     <title>Turbo Comments</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="current-user-id" content="<%= current_user&.id %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,7 +14,9 @@
   <body class='bg-light'>
     <div class="container bg-white border pb-3">
       <%= render 'shared/navigation' %>
-      <%= render 'shared/flash' %>
+      <div id='notifications'>
+        <%= render 'shared/flash' %>
+      </div>
       <%= yield %>
     </div>
   </body>

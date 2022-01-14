@@ -1,0 +1,9 @@
+<%= render @comment %>
+
+<div>
+  <%= link_to "Edit", edit_comment_path(@comment) %> |
+  <%= link_to "Destroy", comment_path(@comment),
+              "data-turbo-method": :delete,
+              "data-turbo-confirm": "Are you sure?" %> |
+  <%= link_to "Back to comments", comments_path %>
+</div>
