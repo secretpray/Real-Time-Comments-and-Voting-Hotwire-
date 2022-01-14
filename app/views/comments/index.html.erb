@@ -1,0 +1,12 @@
+<h1>Comment</h1>
+<%= turbo_stream_from :comments %>
+<%= turbo_stream_from [current_user, :comments] %>
+
+<div id="comments">
+  <%= render @comments %>
+</div>
+
+
+<% if user_signed_in? %>
+  <%= turbo_frame_tag 'new_comment', src: new_comment_path %>
+<% end %>

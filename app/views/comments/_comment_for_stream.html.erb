@@ -1,0 +1,23 @@
+<%= content_tag :div, id: dom_id(comment), class: "card mb-3" do %>
+  <div class="card-body">
+    <h5 class="card-title"><%= comment.user.email %> said:</h5>
+    <p class="card-text"><%= comment.content %></p>
+    <p id='<%= dom_id(comment)%>_count'>
+      <%= comment.vote_count %>
+    </p>
+    <div>
+      <%= link_to comment_votes_path(comment, choice: :up_vote, format: :turbo_stream),
+                  class: "card-link" do %>
+        <span id='<%= dom_id(comment)%>_up_vote_title'>
+          up_vote
+        </span>
+      <% end %>
+      <%= link_to comment_votes_path(comment, choice: :down_vote, format: :turbo_stream),
+                  class: "card-link" do %>
+        <span id='<%= dom_id(comment) %>_down_vote_title'>
+          down_vote
+        </span>
+      <% end %>
+    </div>
+  </div>
+<% end %>
