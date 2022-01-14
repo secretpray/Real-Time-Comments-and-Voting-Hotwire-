@@ -17,6 +17,10 @@ class Comment < ApplicationRecord
     votes.sum(:choice)
   end
 
+  def render_not_allowed(user, flash)
+     broadcast_update_to([user, :comments], target: :notifications, partial: 'shared/flash', locals: { flash: flash })
+  end
+
   private
 
   def update_counter

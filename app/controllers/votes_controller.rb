@@ -8,7 +8,7 @@ class VotesController < ApplicationController
     @vote.voted(params[:choice])
     author = @vote.user
     # only author
-    flash.now[:notice] = " for voting!"
+    flash.now[:notice] = "Thanks for voting!"
     @vote.render_flash_rating(author, flash)
     @vote.update_title(author, params[:choice])
   end

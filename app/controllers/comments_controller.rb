@@ -39,6 +39,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    # return if current_user.id != @comment.id
+    if current_user.id != @comment.user.id
+      flash.now[:alert] = "Not allowed!"
+      @comment.render_not_allowed(current_user, flash)
+      return
+    end
+
     @comment.destroy
     redirect_to comments_url, notice: "Comment was successfully destroyed."
   end

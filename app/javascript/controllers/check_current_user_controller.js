@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   connect() {
     if (this.currentUserId) {
-      this.element.classList.remove("hidden")
+      this.element.classList.remove("d-none")
     }
   }
 

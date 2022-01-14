@@ -1,3 +1,24 @@
 body {
   margin-top: 25px;
 }
+
+// flash section
+#notifications {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#alert-flash,
+#notice-flash {
+  border-left-color: cornflowerblue;
+  border-left-width: 8px;
+  width: 400px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: -16px;
+}
+
+#alert-flash {
+  border-left-color: coral;
+}
+// end flash section
