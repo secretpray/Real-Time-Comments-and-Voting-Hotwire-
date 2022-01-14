@@ -1,70 +1,81 @@
 
 # Real-Time Comments and Voting (Rails 7.0.1 Hotwire)
 
+<details>
+  <summary>Getting Started</summary>
 
-### prepare
-#### check:
+  ## Check version:
+  
+  * Yarn
+  ```ruby
+  yarn --version
+  ```
+  * PostgreSQL
+  ```ruby
+  psql --version
+  ```
+  * Ruby (ruby 3.1.0p0)
+  ```ruby
+  ruby --version
+  ```
+  if need
+  ```ruby
+  rvm install 3.1.0
+  rvm use 3.1.0
+  ```
+  * Rails (Rails 7.0.1)
+  ```ruby
+  rails --version
+  ```
+  if need
+  ```ruby
+  gem install rails
+  ```
+  ## Install application:
+  
+  1) Bundle install:
+  
+  ```ruby
+  bundle install
+  ```
+  2) Yarn install:
+ 
+  ```ruby
+  yarn install --check-files
+  ```
+  3) Prepare database (db:setup or db:prepare)
+ 
+  ```ruby
+  bin/rails db:prepare
+  ```
+  or
+  ```ruby
+  bin/rails db:setup
+  ```
+  4) Compile JS/CSS
 
-* Node
-```bash
-node --version
-```
-* Yarn
-```bash
-yarn --version
-yarn install --check-files
-```
-* PostgreSQL
-```bash
-psql --version
-```
-* Ruby (ruby 3.1.0p0)
-```bash
-ruby --version
-```
-#### if need
-```bash
-rvm install 3.1.0
-rvm use 3.1.0
-```
-* Rails (Rails 7.0.1)
-```bash
-rails --version
-```
-#### if need
-```bash
-gem install rails
-```
+  ```ruby
+  yarn run build
+  yarn run build:css
+  ```
+  
+  ## Start application:
+  
+  ```ruby
+  bin/rails s
+  ```
+  or with foreman
+  ```ruby
+  gem install foreman
+  bin/dev
+  ```
+</details>
 
-### install
-* new Rails app
-```bash
-rails new RealTime_Comments_and_Voting -j esbuild -css bootstrap d postgresql -T
-```
-* Bootstarp
-```bash
-bin/rails css:install:bootstrap
-yarn run build:css
-```
-### setup PostreSQL
-```bash
-bin/rails db:setup
-```
-### setup Devise
-GemFiles
+<details>
+  <summary>Video Preview</summary>
+  All witout update
+  
+  https://user-images.githubusercontent.com/17977331/149556454-0d8616c9-a1e0-462f-95aa-6a134c742c58.mp4
 
-```bash
-bin/rails g devise:install
-bin/rails g devise User
-```
+</details>
 
-### Wellcome controller
-```bash
-bin/rails g controller Welcome index --no-helper
-```
-
-### Prepare DB
-```bash
-bin/rails db:prepare
-bin/rails db:seed
-```
