@@ -4,5 +4,11 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import AutohideController from "./autohide_controller.js"
+application.register("autohide", AutohideController)
+
+import CheckAuthorController from "./check_author_controller.js"
+application.register("check-author", CheckAuthorController)
+
+import CheckCurrentUserController from "./check_current_user_controller.js"
+application.register("check-current-user", CheckCurrentUserController)

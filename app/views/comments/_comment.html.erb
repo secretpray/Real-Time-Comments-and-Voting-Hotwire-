@@ -1,19 +1,32 @@
 <%= content_tag :div, id: dom_id(comment), class: "card mb-3" do %>
   <div class="card-body">
-    <h5 class="card-title"><%= comment.user.email %> said:</h5>
+    <div class="d-flex justify-content-between">
+      <h5 class="card-title"><%= comment.user.email %> said:</h5>
+      <%= button_to comment,
+                    method: :delete,
+                    form: { data:
+                            { turbo_confirm: 'Are you sure?' }
+                          },
+                    data: { controller: "check-author",
+                            check_author_target: 'delete',
+                            check_author_author_id_value: comment.user.id },
+                    class: 'btn-close btn-close-white d-none'  do %>
+
+      <% end %>
+    </div>
     <p class="card-text"><%= comment.content %></p>
     <p id='<%= dom_id(comment)%>_count'>
       <%= comment.vote_count %>
     </p>
-    <div>
-      <%= link_to comment_votes_path(comment, choice: :up_vote, format: :turbo_stream),
-                  class: "card-link" do %>
+    <div data-controller='check-current-user' class='d-none'>
+      <!-- up_vote -->
+      <%= link_to comment_votes_path(comment, choice: :up_vote, format: :turbo_stream), class: "card-link" do %>
         <span id='<%= dom_id(comment)%>_up_vote_title'>
           <%= set_title(comment, 'up_vote', current_user) %>
         </span>
       <% end %>
-      <%= link_to comment_votes_path(comment, choice: :down_vote, format: :turbo_stream),
-                  class: "card-link" do %>
+      <!-- down_vote -->
+      <%= link_to comment_votes_path(comment, choice: :down_vote, format: :turbo_stream), class: "card-link"  do %>
         <span id='<%= dom_id(comment) %>_down_vote_title'>
           <%= set_title(comment, 'down_vote', current_user) %>
         </span>
