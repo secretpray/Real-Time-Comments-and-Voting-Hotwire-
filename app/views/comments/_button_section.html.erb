@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-between align-items-center">
+  <div class="d-flex">
+    <span class="card-title fs-6 fw-lighter">
+      <%= time_ago_in_words(comment.created_at) %> ago by &nbsp;
+    </span>
+    <span class='fw-light'>
+      <%= comment.user.email.split('@').first %>
+    </span>
+  </div>
+  <div class="d-flex">
+    <div class="">
+      <%= link_to "Show", comment,
+                  class: 'btn btn-link text-decoration-none fw-light',
+                  data: {turbo_frame: :comments } %>
+    </div>
+    <div class="d-flex d-none"
+        data-controller='check-author'
+        data-check-author-author-id-value='<%= comment.user.id %>' >
+      <%= link_to 'Edit', edit_comment_path(comment),
+                          data: { turbo_frame: dom_id(comment) },
+                          class: 'btn btn-link text-decoration-none fw-light' %>
+      <%= button_to comment,
+                    method: :delete,
+                    form: { data: { turbo_confirm: 'Are you sure?' }},
+                    # data: { turbo_method: :delete,
+                    #         turbo_confirm: "Are you sure?" },
+                    id: 'close-custom',
+                    class: 'btn-close btn-close-white mt-2',
+                    data: { turbo_frame_target: :_top } do %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

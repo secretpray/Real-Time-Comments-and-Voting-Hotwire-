@@ -22,3 +22,25 @@ body {
   border-left-color: coral;
 }
 // end flash section
+
+.btn-link {
+  color: lightgray;
+  opacity: .75 !important;
+}
+
+.btn-link:hover {
+  color: inherit !important;
+  opacity: .95 !important;
+}
+
+#close-custom {
+  opacity: .25;
+}
+
+#close-custom:hover {
+  opacity: .95;
+}
+// .btn:hover {
+//   opacity: .95 !important;
+//   color: red !important;
+// }

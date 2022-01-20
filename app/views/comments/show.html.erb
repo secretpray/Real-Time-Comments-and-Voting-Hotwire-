@@ -1,9 +1,11 @@
-<%= render @comment %>
-
-<div>
-  <%= link_to "Edit", edit_comment_path(@comment) %> |
-  <%= link_to "Destroy", comment_path(@comment),
-              "data-turbo-method": :delete,
-              "data-turbo-confirm": "Are you sure?" %> |
-  <%= link_to "Back to comments", comments_path %>
-</div>
+<%= turbo_frame_tag :comments  do %>
+  <%= render @comment %>
+  <div class='mt-3 mb-4'>
+    <%#= link_to "Destroy", comment_path(@comment),
+    "data-turbo-method": :delete,
+    "data-turbo-confirm": "Are you sure?" %>
+    <%= link_to "Back", comments_path,
+                        class: 'btn btn-outline-secondary', 
+                        data: { turbo_frame: :comments} %>
+  </div>
+<% end %>

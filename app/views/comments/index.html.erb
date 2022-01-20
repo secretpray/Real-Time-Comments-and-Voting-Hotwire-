@@ -1,15 +1,20 @@
 <%= turbo_stream_from :comments %>
 <%= turbo_stream_from [current_user, :comments] %>
 
-<h2 class="text-lg font-bold text-4xl cursor-pointer" id="comments_counter">
-  <%= render partial: 'comments/count', locals: { count: @comments.count } %>
-</h2>
-
-<div id="comments">
-  <%= render @comments %>
+<div class="d-flex justify-content-between">
+  <h2 class="text-lg font-bold text-4xl cursor-pointer" id="comments_counter">
+    <%= render partial: 'comments/count', locals: { count: @comments.count } %>
+  </h2>
+  <span class='fs-6 fw-lighter'>
+    <%= Time.zone.now.strftime("%A, %D: %k:%M:%S.%L") %>
+  </span>
 </div>
+
+<%= turbo_frame_tag :comments do %>
+  <%= render @comments %>
+<% end %>
 
 
 <% if user_signed_in? %>
-  <%= turbo_frame_tag 'new_comment', src: new_comment_path %>
+  <%= turbo_frame_tag :new_comment, src: new_comment_path %>
 <% end %>

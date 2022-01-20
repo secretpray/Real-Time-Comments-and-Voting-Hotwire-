@@ -12,8 +12,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @comment = current_user.comments.new(comment_params)
@@ -31,15 +30,16 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if @comment.update(comment_params)
-      redirect_to @comment, notice: "Comment was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.turbo_stream
+      else
+        format.turbo_stream
+      end
     end
   end
 
   def destroy
-    # return if current_user.id != @comment.id
     if current_user.id != @comment.user.id
       flash.now[:alert] = "Not allowed!"
       @comment.render_not_allowed(current_user, flash)
@@ -47,7 +47,7 @@ class CommentsController < ApplicationController
     end
 
     @comment.destroy
-    redirect_to comments_url, notice: "Comment was successfully destroyed."
+    # redirect_to comments_url, notice: "Comment was successfully destroyed."
   end
 
   private
