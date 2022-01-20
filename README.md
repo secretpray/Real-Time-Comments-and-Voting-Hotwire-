@@ -73,9 +73,14 @@
 
 <details>
   <summary>Video Preview</summary>
-  All witout update
+  Fisrt stage
   
   https://user-images.githubusercontent.com/17977331/149556454-0d8616c9-a1e0-462f-95aa-6a134c742c58.mp4
+  
+  Second stage
+  
+  https://user-images.githubusercontent.com/17977331/150297843-4a9a29cc-fbc7-40db-90a3-23301f9c15e2.mov
+
 
 </details>
 
