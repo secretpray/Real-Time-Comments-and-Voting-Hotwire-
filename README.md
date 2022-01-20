@@ -1,6 +1,9 @@
 
 # Real-Time Comments and Voting (Rails 7.0.1 Hotwire)
 
+>  based on [DriftingRuby screencast](https://www.driftingruby.com/episodes/real-time-comments-and-voting)
+
+
 <details>
   <summary>Getting Started</summary>
 
@@ -70,6 +73,8 @@
   bin/dev
   ```
 </details>
+
+----------------------------------------------------------
 
 <details>
   <summary>Video Preview</summary>
