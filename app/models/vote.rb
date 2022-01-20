@@ -26,7 +26,8 @@ class Vote < ApplicationRecord
   end
 
   def update_title(user, choice)
-    new_title = set_title(self.comment, choice, user)
+    parse_icon = choice == 'up_vote' ? up_vote_icon : down_vote_icon
+    new_title = set_title(self.comment, choice, parse_icon, user)
     broadcast_update_to([user, :comments], target: "#{dom_id(comment)}_#{choice}_title", html: new_title)
   end
 end

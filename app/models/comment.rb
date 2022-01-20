@@ -8,6 +8,10 @@ class Comment < ApplicationRecord
     update_counter
   end
 
+  after_update_commit do
+    broadcast_update_to :comments, partial: "comments/comment_for_stream", locals: { comment: self }
+  end
+
   after_destroy_commit do
     broadcast_remove_to :comments
     update_counter

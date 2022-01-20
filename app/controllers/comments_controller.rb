@@ -37,15 +37,9 @@ class CommentsController < ApplicationController
         format.turbo_stream
       end
     end
-    # if @comment.update(comment_params)
-    #   redirect_to @comment, notice: "Comment was successfully updated."
-    # else
-    #   render :edit, status: :unprocessable_entity
-    # end
   end
 
   def destroy
-    # return if current_user.id != @comment.id
     if current_user.id != @comment.user.id
       flash.now[:alert] = "Not allowed!"
       @comment.render_not_allowed(current_user, flash)
