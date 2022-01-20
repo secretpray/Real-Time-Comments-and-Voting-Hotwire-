@@ -1,0 +1,16 @@
+<div data-controller='check-current-user' class='d-none'>
+  <!-- up_vote -->
+  <%= link_to comment_votes_path(comment, choice: :up_vote, format: :turbo_stream), class: "card-link" do %>
+    <span id='<%= dom_id(comment)%>_up_vote_title'>
+      <!-- ApplicationHelper -->
+      <%= up_title(comment, static) %>
+    </span>
+  <% end %>
+  <!-- down_vote -->
+  <%= link_to comment_votes_path(comment, choice: :down_vote, format: :turbo_stream), class: "card-link" do %>
+    <span id='<%= dom_id(comment) %>_down_vote_title'>
+      <!-- ApplicationHelper -->
+      <%= down_title(comment, static) %>
+    </span>
+  <% end %>
+</div>
