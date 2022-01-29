@@ -1,6 +1,6 @@
 <!-- right -->
 <% if Rails.env.development? %>
-  <ul class='nav'>
+  <ul class='nav nav flex-fill justify-content-center'>
     <li class="nav-item me-4">
       <%= link_to root_path, class: 'nav-link' do %>
         <%= Time.zone.now.strftime("%A, %D: %k:%M:%S.%L") %>

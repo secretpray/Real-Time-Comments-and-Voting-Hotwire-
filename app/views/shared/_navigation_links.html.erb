@@ -1,8 +1,8 @@
 <!-- left -->
 <ul class='nav'>
-  <li class="nav-item me-4">
-    <%= link_to "Home", root_path, class: 'nav-link' %>
-  </li>
+  <!-- <li class="nav-item me-4">
+    <%#= link_to "Home", root_path, class: 'nav-link' %>
+  </li> -->
   <% if user_signed_in? %>
     <li class="nav-item me-4">
       <%= link_to "Comments", comments_path, class: "nav-link" %>

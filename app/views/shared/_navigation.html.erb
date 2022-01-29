@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light py-4">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" data-config-id="brand">
+    <a class="navbar-brand" href="/" data-config-id="brand">
       <%= image_tag 'logo.png', class: 'img-fluid' %>
     </a>
     <%= render 'shared/navigation_clock' %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="nav">
+    <div class="collapse navbar-collapse justify-content-end" id="nav">
       <ul class="d-none d-lg-flex navbar-nav mt-3 mt-lg-0 mb-3 mb-lg-0 class-1">
         <%= render 'shared/navigation_links' %>
       </ul>
