@@ -77,7 +77,7 @@
 ----------------------------------------------------------
 
 <details>
-  <summary>Video Preview</summary>
+  <summary>Preview</summary>
   Fisrt stage
   
   https://user-images.githubusercontent.com/17977331/149556454-0d8616c9-a1e0-462f-95aa-6a134c742c58.mp4
