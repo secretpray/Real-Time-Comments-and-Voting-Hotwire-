@@ -4,3 +4,6 @@ $btn-close-white-filter: invert(19%) sepia(96%) saturate(7453%) hue-rotate(359de
 .cursor-pointer {
   cursor: pointer;
 }
+.not-allowed {
+  cursor: not-allowed! important;
+}

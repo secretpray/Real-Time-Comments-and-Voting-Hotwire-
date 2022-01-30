@@ -1,52 +1,68 @@
-<div id="<%= dom_id product %>">
-  <p>
-    <strong>Name:</strong>
-    <%= product.name %>
-  </p>
-
-  <p>
-    <strong>Sku:</strong>
-    <%= product.sku %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= product.description %>
-  </p>
-
-  <p>
-    <strong>Popularity:</strong>
-    <%= product.popularity %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= product.price %>
-  </p>
-
-  <p>
-    <strong>Discount:</strong>
-    <%= product.discount %>
-  </p>
-
-  <p>
-    <strong>Color:</strong>
-    <%= product.color %>
-  </p>
-
-  <p>
-    <strong>Size:</strong>
-    <%= product.size %>
-  </p>
-
-  <p>
-    <strong>Sex:</strong>
-    <%= product.sex %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= product.category_id %>
-  </p>
-
+<%#= product.desription %>
+<%#= product.category_id %>
+<%#= product.sex %>
+<div id="<%= dom_id product %>" class="col-lg-3 col-md-6">
+  <div class="product-card">
+    <div class="product-actions">
+      <button class="btn btn-sm"><i class="fa fa-share"></i></button>
+      <button class="btn btn-sm"><i class="fa fa-heart-o"></i></button>
+      <button class="btn btn-sm"><i class="fa fa-eye"></i></button>
+    </div>
+    <%= image_tag(product.images.first, class: 'w-100') if product.images.attached? %>
+    <!-- <img class="w-100" src="images/shoe-1.jpg" alt=""> -->
+    <div class="product-info">
+      <div class="product-meta">
+        <p class="product-id">
+          SKU: <%= product.sku %>
+        </p>
+        <h6 class="product-title">
+          <%= product.name %>
+        </h6>
+        <p class="product-rating">
+          <%#= product.popularity %>
+          <% product.popularity.to_i.times do %>
+            <i class="fa fa-star"></i>
+          <% end %>
+          <% (5 - product.popularity.to_i).times do %>
+            <i class="fa fa-star-o"></i>
+          <% end %>
+        </p>
+      </div>
+      <div class="product-properties">
+        <div class="product-size">
+          <span>
+            Size
+            <%#= product.size %>
+          </span>
+          <ul>
+            <% Product::sizes.keys.each do |size| %>
+              <li class="<%= 'text-muted opacity-50 disabled not-allowed' unless size == product.size %>">
+                <%= size.upcase %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="product-color">
+          <span>
+            Color
+            <%= product.color %>
+          </span>
+          <ul>
+            <li class="orange"></li>
+            <li class="green"></li>
+            <li class="pink"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="product-footer">
+        <div class="product-price">
+          <div class="product-price-new">
+            USD <%= product.price %>
+            <%#= product.discount %>
+          </div>
+        </div>
+        <button class="btn btn-sm"><i class="fa fa-shopping-cart"></i></button>
+      </div>
+    </div>
+  </div>
 </div>

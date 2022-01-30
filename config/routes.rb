@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'products#index'
+  devise_for :users
 
   resources :categories
   resources :products
@@ -8,5 +8,5 @@ Rails.application.routes.draw do
     resource :votes, only: :show
   end
 
-  devise_for :users
+  root 'products#index'
 end

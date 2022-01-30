@@ -16,9 +16,9 @@ gem "redis", "~> 4.0"
 # gem "kredis"
 gem "bootsnap", require: false
 gem 'devise'
-# Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 gem "image_processing", "~> 1.2"
+gem "font-awesome-rails"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

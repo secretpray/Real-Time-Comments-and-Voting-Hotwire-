@@ -23,6 +23,13 @@ def create_user(email, password = '123456')
   print '.'
 end
 
+def add_image(product)
+  image = "#{Product::types[product.product_type].downcase}-#{rand(1..4)}.png"
+  product.images.attach(io: File.open(Rails.root.join('app', 'assets', 'images', image)),
+                 filename: "#{SecureRandom.uuid}_#{image}", content_type: 'image/png')
+  print '.'
+end
+
 #create Users
 USER_EMAIL.each { |email| create_user(email) }
 
@@ -34,17 +41,26 @@ end
 
 #create Products
 MAX_PRODUCT_COUNT.times do
+  percentage = rand(101)
+  popularity = percentage < 10 ? 2 : percentage < 40 ? 3 : percentage < 75 ? 4 : 5
   Product.create!(name: Faker::Commerce.product_name,
                   description: Faker::TvShows::BigBangTheory.quote,
                   price: Faker::Commerce.price(range: 0..1000.00),
                   brand: Product::brands.keys.sample,
                   product_type:  Product::types.keys.sample,
+                  popularity: popularity,
                   color: Product::colors.values.sample,
                   size:  Product::sizes.values.sample,
                   sex:   Product::sexes.values.sample,
                   category: Category.all.sample)
   print '.'
 end
+
+# add image
+  Product.all.each do |product|
+    add_image(product) unless product.images.attached?
+    print '.'
+  end
 
 puts ' '
 puts ' '

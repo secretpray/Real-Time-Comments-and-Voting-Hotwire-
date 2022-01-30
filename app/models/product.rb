@@ -22,7 +22,8 @@ class Product < ApplicationRecord
                BT: 'Boots',
                FL: 'Flats',
                SD: 'Sandals',
-               CL: 'Clogs'
+               CL: 'Clogs',
+               SH: 'Shoes'
              }
 
   validates :name, presence: true, length: { maximum: 150 }
