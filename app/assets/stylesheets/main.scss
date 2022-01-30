@@ -44,3 +44,11 @@ body {
 //   opacity: .95 !important;
 //   color: red !important;
 // }
+
+// bootstrap
+.form-select {
+  -webkit-appearance:none !important;
+  -moz-appearance: none;
+  appearance: none;
+  outline: -webkit-focus-ring-color auto 5px;
+}

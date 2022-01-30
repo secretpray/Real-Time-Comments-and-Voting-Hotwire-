@@ -1,9 +1,9 @@
-<% if comment.errors.any? %>
+<% if object.errors.any? %>
   <div style="color: red">
-    <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+    <h2><%= pluralize(object.errors.count, "error") %> prohibited this form comment from being saved:</h2>
 
     <ul>
-      <% comment.errors.each do |error| %>
+      <% object.errors.each do |error| %>
         <li><%= error.full_message %></li>
       <% end %>
     </ul>

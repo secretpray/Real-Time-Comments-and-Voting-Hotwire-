@@ -1,0 +1,126 @@
+<div class="offset-2 col-md-8 col-lg-8">
+  <%= form_with model: product, class: 'needs-validation' do |form| %>
+
+    <%= render partial: 'shared/errors', locals: { object: product } %>
+
+    <div class="row g-3 mb-3">
+      <div class='col-md-7'>
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class='col-md-5'>
+        <%= form.label :category_id, class: "form-label" %>
+        <%= form.collection_select(:category_id,
+                                   Category.all, :id, :name,
+                                   { prompt: 'Select Category'},
+                                   { class: 'form-select',
+                                     style: '-webkit-appearance:none;'}) %>
+        <div class="invalid-category d-none">
+          Please select a valid category.
+        </div>
+      </div>
+    </div>
+
+    <div class='mb-3'>
+      <%= form.label :description, class: "form-label" %>
+      <%= form.rich_text_area :description, class: 'form-control' %>
+    </div>
+
+    <div class="row g-3 mb-3">
+      <div class='col-sm-6'>
+        <%= form.label :brand, class: "form-label" %>
+        <%= form.select :brand, Product::brands.invert.to_a,
+                        { prompt: 'Select brand'},
+                        class: 'form-select',
+                        style: '-webkit-appearance:none;' %>
+        <%#= form.select :color, Product::colors.keys,
+                        { prompt: 'Select color' },
+                        class: 'form-select',
+                        style: '-webkit-appearance:none;'
+                        Product::brands.values,
+                        Product::types.values.map { |type| [type.upcase, type] },
+                        Product::brands.keys.map { |brand| [Product::brands[brand].titleize, brand] }б
+                        Product::brands.to_a.map(&:reverse).to_a%>
+        <div class="invalid-brand d-none">
+          Please select a valid Brand.
+        </div>
+      </div>
+
+      <div class='col-sm-6'>
+        <%= form.label :product_type, class: "form-label" %>
+        <%= form.select :product_type, Product::types.invert.to_a,
+                        { prompt: 'Select product type'},
+                        class: 'form-select',
+                        style: '-webkit-appearance:none;' %>
+                        <%# Product::types.keys.map { |type| [Product::types[type].titleize, type] }, %>
+        <div class="invalid-size d-none">
+          Please select a valid size.
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mb-3">
+      <div class='col-sm-4'>
+        <%= form.label :color, class: "form-label" %>
+        <%= form.select :color, Product::colors.keys.map {|color| [color.titleize, color]},
+                        { prompt: 'Select color'},
+                        class: 'form-select',
+                        style: '-webkit-appearance:none;' %>
+        <div class="invalid-color d-none">
+          Please select a valid color.
+        </div>
+      </div>
+
+      <div class='col-sm-4'>
+        <%= form.label :size, class: "form-label" %>
+        <%= form.select :size, Product::sizes.keys.map { |size| [size.upcase, size] },
+        { prompt: 'Select size'},
+        class: 'form-select',
+        style: '-webkit-appearance:none;' %>
+        <div class="invalid-size d-none">
+          Please select a valid size.
+        </div>
+      </div>
+
+      <div class='col-sm-4'>
+        <%= form.label :sex, class: "form-label" %>
+        <%= form.select :sex, Product::sexes.keys.map { |sex| [sex.titleize, sex] },
+        { prompt: 'Select sex'},
+        class: 'form-select',
+        style: '-webkit-appearance:none;' %>
+        <div class="invalid-sex d-none">
+          Please select a valid sex.
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mb-3">
+      <div class='col-sm-6'>
+        <%= form.label :price, class: "form-label" %>
+        <%= form.text_field :price, class: 'form-control' %>
+      </div>
+
+      <div class='col-sm-6'>
+        <%= form.label :discount, class: "form-label" %>
+        <%= form.number_field :discount, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class='offset-3 col-sm-6'>
+        <%= form.label :images, class: "form-label" %>
+        <%= form.file_field :images, class: 'form-control', multiple: true %>
+      </div>
+    </div>
+
+    <div class='mb-3 d-flex justify-content-between'>
+      <div class="">
+        <%= form.submit class: 'btn btn-primary'%>
+      </div>
+      <div>
+        <%= link_to "Back to products", products_path %>
+      </div>
+    </div>
+  <% end %>
+</div>
