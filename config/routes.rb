@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  devise_for :users
+
+  resources :categories
+  resources :products
 
   resources :comments do
     resource :votes, only: :show
   end
-  
-  devise_for :users
+
+  root 'products#index'
 end

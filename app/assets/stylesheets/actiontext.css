@@ -1,4 +1,8 @@
 /*
+ *= require font-awesome
+ */
+
+/*
  * Provides a drop-in pointer for the default Trix stylesheet that will format the toolbar and
  * the trix-editor content (whether displayed or under editing). Feel free to incorporate this
  * inclusion directly in any other asset bundle and remove this file.
@@ -28,4 +32,149 @@
 .trix-content action-text-attachment .attachment {
   padding: 0 !important;
   max-width: 100% !important;
+}
+
+// bootstrap
+.form-select {
+  -webkit-appearance:none !important;
+  -moz-appearance: none;
+  appearance: none;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.product-card {
+  margin: 15px 0;
+  position: relative;
+  box-shadow: 6px 12px 12px #ddd;
+  // box-shadow: -11px 11px 1px #ddd;
+}
+
+.product-card:hover .product-actions {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0px);
+}
+
+.product-info {
+  padding: 12px;
+}
+
+.product-id {
+  font-size: 12px !important;
+  color: #999 !important;
+}
+
+.product-rating .fa-star {
+  color: #ffd900;
+}
+
+.product-rating .fa-star-o {
+  color: #999999;
+}
+
+.product-size, .product-color {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.product-size ul,
+.product-color ul {
+  list-style: none;
+  display: flex;
+  margin-bottom: 0;
+}
+
+.product-size ul li {
+  width: 24px;
+  height: 24px;
+  margin-right: 7px;
+  font-size: 10px;
+  line-height: 2.0;
+  border-radius: 50%;
+  /* width: 18px;
+  height: 18px;
+  margin-right: 15px;
+  line-height: 1.2;
+  font-size: 12px;*/
+  cursor: pointer;
+  border: 1px solid;
+  text-align: center;
+}
+
+.product-color ul li {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+
+.product-color ul li:hover {
+  border: 2px solid #999999
+}
+
+.product-color .orange {
+  background: orange;
+}
+
+.product-color .green {
+  background: green;
+}
+
+.product-color .pink {
+  background: deeppink;
+}
+
+.product-footer {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  display: flex;
+}
+
+.product-price-new {
+  font-weight: 600;
+}
+
+.product-price-old {
+  text-decoration: line-through;
+  color: #999999;
+  margin-left: 10px;
+}
+
+.product-footer .btn {
+  border-radius: 50%;
+  background: #ff0000;
+  color: #fff;
+}
+
+.product-footer .btn:hover {
+  background: #2f2e2e;
+  color: #ffffff;
+}
+
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(45px);
+  transition: all 0.4s linear;
+}
+
+/* Bootstrap */
+.cursor-pointer {
+  cursor: pointer;
+}
+.not-allowed {
+  cursor: not-allowed! important;
 }

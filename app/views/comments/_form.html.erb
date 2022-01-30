@@ -1,7 +1,7 @@
-<%= form_with model: comment, 
+<%= form_with model: comment,
               id: dom_id(comment),
               target: :_top do |form| %>
-  <%= render partial: 'shared/errors', locals: {comment: comment} %>
+  <%= render partial: 'shared/errors', locals: { object: comment } %>
   <div class="mb-3">
     <%= form.rich_text_area :content %>
   </div>
