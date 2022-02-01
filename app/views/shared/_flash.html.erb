@@ -1,21 +1,23 @@
-<% if flash.any? %>
-  <% flash.each do |type, msg| %>
-    <% if type == 'alert' %>
-      <%= content_tag :div, msg, id: 'alert-flash',
-                            class: "alert alert-light alert-dismissible fade show",
-                            role: :alert,
-                            data: { controller: 'autohide' } do %>
-        <%= msg %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<div id='notifications'>
+  <% if flash.any? %>
+      <% flash.each do |type, msg| %>
+        <% if type == 'alert' %>
+          <%= content_tag :div, msg, id: 'alert-flash',
+                                class: "alert alert-light alert-dismissible fade show",
+                                role: :alert,
+                                data: { controller: 'autohide' } do %>
+            <%= msg %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <% end %>
+        <% else %>
+          <%= content_tag :div, msg, id: 'notice-flash',
+                                class: "flex alert alert-light alert-dismissible fade show",
+                                role: :alert,
+                                data: { controller: 'autohide' } do %>
+            <%= msg %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <% end %>
+        <% end %>
       <% end %>
-    <% else %>
-      <%= content_tag :div, msg, id: 'notice-flash',
-                            class: "flex alert alert-light alert-dismissible fade show",
-                            role: :alert,
-                            data: { controller: 'autohide' } do %>
-        <%= msg %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      <% end %>
-    <% end %>
   <% end %>
-<% end %>
+</div>

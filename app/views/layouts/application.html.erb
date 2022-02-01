@@ -11,12 +11,10 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class='bg-light'>
-    <div class="container bg-white border pb-3">
-      <%= render 'shared/navigation' %>
-      <div id='notifications'>
-        <%= render 'shared/flash' %>
-      </div>
+  <body class='h-full font-sans antialiased font-normal leading-normal bg-gray-50 mt-0'>  
+    <%= render 'shared/navigation' %>
+    <%= render 'shared/flash' %>
+    <div class="container mx-auto">
       <%= yield %>
     </div>
   </body>

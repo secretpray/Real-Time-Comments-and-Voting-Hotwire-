@@ -1,18 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-light py-4">
-  <div class="container-fluid">
-    <!-- <a class="navbar-brand" href="/" data-config-id="brand"> -->
-    <%= link_to root_path, class: 'navbar-brand', data: { config_id: "brand"} do %>
-      <%= image_tag 'logo.png', class: 'img-fluid' %>
-    <% end %>
-    <%= render 'shared/navigation_clock' %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container mx-auto">
+    <%= link_to 'Home', root_path, class: "navbar-brand" %>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMain"
+            aria-controls="navbarsExample04"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="nav">
-      <ul class="d-none d-lg-flex navbar-nav mt-3 mt-lg-0 mb-3 mb-lg-0 class-1">
-        <%= render 'shared/navigation_links' %>
+
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav me-auto mt-2 mt-md-0">
       </ul>
-      <ul class="navbar-nav mt-3 mt-lg-0 mb-3 mb-lg-0 d-lg-none class-2">
+      <ul class="navbar-nav">
         <%= render 'shared/navigation_links' %>
       </ul>
     </div>
