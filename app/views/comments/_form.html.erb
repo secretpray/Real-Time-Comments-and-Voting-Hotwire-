@@ -9,8 +9,9 @@
   <div class="actions">
     <%= form.submit class: 'btn btn-primary' %>
     <% unless form.object.new_record? %>
-      <%= link_to "Cancel edit", comments_path,
-          class: 'btn btn-link' unless comment.new_record? %>
+      <%= link_to "Cancel", comments_path,
+          class: 'btn btn-link',
+          data: {turbo_frame: :comments} unless comment.new_record? %>
     <% end %>
   </div>
 <% end %>

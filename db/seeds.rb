@@ -19,7 +19,10 @@ USER_EMAIL         = %w(jane.doe john.doe admin)
 
 # service
 def create_user(email, password = '123456')
-  User.create!(email: "#{email}@example.com", password: password)
+  User.create!(email: "#{email}@example.com",
+               first_name: Faker::Name.first_name,
+               last_name: Faker::Name.last_name,
+               password: password)
   print '.'
 end
 

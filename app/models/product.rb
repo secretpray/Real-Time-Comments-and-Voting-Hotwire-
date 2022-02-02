@@ -29,7 +29,7 @@ class Product < ApplicationRecord
   validates :name, presence: true, length: { maximum: 150 }
   validates :sku, length: { maximum: 12 }
   validates :discount, inclusion: { in: 0...100 }
-  validates :description, presence: true, length: { maximum: 500 }
+  validates :description, presence: true
   validates :brand, inclusion: { in: brands.stringify_keys.keys,
                                   message: 'not included in a specific list!' }
   validates :product_type, inclusion: { in: types.stringify_keys.keys,

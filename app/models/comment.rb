@@ -3,6 +3,8 @@ class Comment < ApplicationRecord
   has_rich_text :content
   has_many :votes, dependent: :destroy
 
+  validates_presence_of :content
+
   after_create_commit do
     broadcast_append_to :comments, target: "comments", partial: "comments/comment_for_stream", locals: { comment: self }
     update_counter

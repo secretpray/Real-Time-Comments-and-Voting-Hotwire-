@@ -19,12 +19,13 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.turbo_stream {
-          render turbo_stream: turbo_stream.replace(
-            "new_comment",
-            partial: "comments/form",
-            locals: { comment: Comment.new }
+          render turbo_stream: turbo_stream.replace("new_comment",
+                                                     partial: "comments/form",
+                                                    locals: { comment: Comment.new }
           )
         }
+      else
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
