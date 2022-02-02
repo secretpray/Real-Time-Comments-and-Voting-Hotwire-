@@ -1,15 +1,28 @@
-<%#= product.desription %>
-<%#= product.category_id %>
-<%#= product.sex %>
-<div id="<%= dom_id product %>" class="col-lg-3 col-md-6">
+<%= turbo_frame_tag dom_id(product), class: "col-lg-3 col-md-6 mb-3 mx-auto",
+    data: { controller_name: "#{controller_name}", action_name: "#{action_name}" } do %>
   <div class="product-card">
     <div class="product-actions">
       <button class="btn btn-sm"><i class="fa fa-share"></i></button>
       <button class="btn btn-sm"><i class="fa fa-heart-o"></i></button>
-      <button class="btn btn-sm"><i class="fa fa-eye"></i></button>
+      <%= link_to product, class: "btn btn-sm", data: { turbo_frame: :products } do %>
+        <i class="fa fa-eye"></i>
+      <% end %>
+
+      <%= link_to edit_product_path(product), class: "btn btn-sm", data: { turbo_frame: :products } do %>
+        <i class="fa fa-pencil"></i>
+      <% end %>
+
+      <%= button_to product,
+                    method: :delete,
+                    form: { data: { turbo_confirm: 'Are you sure?' }},
+                    class: 'btn btn-sm',
+                    data: { turbo_frame: :products }  do %>
+          <i class="fa fa-trash" ></i>
+      <% end %>
+
+
     </div>
     <%= image_tag(product.images.first, class: 'w-100') if product.images.attached? %>
-    <!-- <img class="w-100" src="images/shoe-1.jpg" alt=""> -->
     <div class="product-info">
       <div class="product-meta">
         <p class="product-id">
@@ -65,4 +78,8 @@
       </div>
     </div>
   </div>
-</div>
+<% end %>
+
+<%#= product.desription %>
+<%#= product.category_id %>
+<%#= product.sex %>

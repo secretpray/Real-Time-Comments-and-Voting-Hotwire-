@@ -1,12 +1,15 @@
+<%= turbo_stream_from :products %>
+<%= turbo_stream_from [current_user, :products] %>
 <div class="container">
-  <div class="mx-2 d-flex justify-content-between align-items-center">
-    <h1>Products</h1>
-    <div class="">
-      <%= link_to "New product", new_product_path, class: 'btn btn-outline-secondary' %>
+  <%= turbo_frame_tag :products, class: 'row' do %>
+    <div class="mx-2 d-flex justify-content-between align-items-center">
+      <h1>Products</h1>
+      <% if user_signed_in? %>
+        <%#= turbo_frame_tag :new_product, src: new_comment_path, class: 'btn btn-outline-secondary' %>
+        <%= link_to "New product", new_product_path, class: 'btn btn-outline-secondary', data: { turbo_frame: :products } %>
+      <% end %>
     </div>
-  </div>
 
-  <div id="products" class='row'>
     <%= render @products %>
-  </div>
+  <% end %>
 </div>

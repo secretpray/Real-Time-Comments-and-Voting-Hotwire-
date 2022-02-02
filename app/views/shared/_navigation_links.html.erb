@@ -4,6 +4,7 @@
       <%= AvatarPresenter.call(current_user, 40) %>
     <% end %>
     <div id="nav-account-dropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbar-dropdown">
+      <%= link_to "Comments", comments_path, class: "dropdown-item", data: {turbo_frame: :comments} %>
       <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
       <div class="dropdown-divider"></div>
       <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>

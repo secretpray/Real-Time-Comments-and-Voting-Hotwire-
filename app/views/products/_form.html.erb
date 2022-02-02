@@ -1,5 +1,9 @@
 <div class="offset-2 col-md-8 col-lg-8">
-  <%= form_with model: product, class: 'needs-validation' do |form| %>
+  <%= form_with model: product, id: dom_id(product),
+                class: 'needs-validation',
+                data: { controller_name: "#{controller_name}",
+                        action_name: "#{action_name}" },
+                target: :_top do |form| %>
 
     <%= render partial: 'shared/errors', locals: { object: product } %>
 
@@ -119,7 +123,12 @@
         <%= form.submit class: 'btn btn-primary'%>
       </div>
       <div>
-        <%= link_to "Back to products", products_path %>
+        <% unless form.object.new_record? %>
+          <%#= link_to "Cancel edit", products_path,
+              class: 'btn btn-link' unless product.new_record? %>
+        <% end %>
+
+        <%= link_to "Back", products_path, class: 'btn btn-outline-secondary', data: { turbo_frame: :products} %>
       </div>
     </div>
   <% end %>
